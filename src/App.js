@@ -6,6 +6,8 @@ import TextSection from "./components/TextSection";
 import { Canvas } from "@react-three/fiber";
 import Box from "./components/Box";
 import { OrbitControls } from "@react-three/drei";
+import { Suspense } from "react";
+import Model from "./components/Iphone";
 
 export default function App() {
   return (
@@ -16,7 +18,10 @@ export default function App() {
         <OrbitControls enableZoom={false} />
         <ambientLight intensity={0.5}/>
         <directionalLight position={[-2, 5, 2]} intensity={1} />
-        <Box />
+        <Suspense fallback={null}>
+          {/* <Box /> */}
+          <Model />
+        </Suspense>
       </Canvas>
     </Wrapper>
   );
